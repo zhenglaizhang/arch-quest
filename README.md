@@ -1,7 +1,15 @@
 # the-way-to-arch
 all stuff about arch linux as personal workstation OS
 
+## Prepare USB Installer
 
+```
+dd bs=4M if=/path/to/archlinux.iso of=/dev/sdb status=progress && sync
+
+# or use Rufus on Windows
+```
+
+## Installation Steps
 ```bash
 
 
