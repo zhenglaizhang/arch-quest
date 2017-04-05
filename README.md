@@ -13,6 +13,16 @@ dd bs=4M if=/path/to/archlinux.iso of=/dev/sdb status=progress && sync
 ```bash
 
 
+iw dev //识别无限网卡
+wifi-menu wlp3s0 //连接网卡
+>>> ip link set wlp3s0 up //上述命令无效使用
+>>> ip link show wlp3s0 //同上
+>>> dmesg | grep firmware//没有输出，表示没有该网卡fireware
+>>> iw dev wlp3s0 scan | grep SSID //
+>>> wpa_supplicant -B -i wlp3s0 -c < (wpa_passphrase ssid psk) //连接wifi
+>>> dhcpcd wlp3s0
+
+ping www.baidu.com
 
 cgdisk /dev/sda
 
