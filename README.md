@@ -51,6 +51,10 @@ dd bs=4M if=/path/to/archlinux.iso of=/dev/sdb status=progress && sync
 ## Installation Steps
 ```bash
 
+# verify boot mode is uefi: 
+#   1. UEFI: following dir has files inside
+#   2. BIOS/CSM: empty dir
+ls /sys/firmware/efi/efivars
 
 iw dev //识别无限网卡
 wifi-menu wlp3s0 //连接网卡
@@ -69,6 +73,8 @@ mkfs.vfat -F32 /dev/sda1
 mkfs.ext4 /dev/sda2
 
 lsblk
+# or 
+fdisk -l
 # to check
 
 # mounting
@@ -86,7 +92,7 @@ mv mirrorlist2 mirrorlist
 # refresh pacman cache
 pacman -Syy
 
-# install base system
+# install base system & dev utils
 pacstrap -i /mnt base base-devel
 
 
@@ -94,25 +100,25 @@ pacstrap -i /mnt base base-devel
 genfstab -U -p /mnt >> /mnt/etc/fstab
 cat /mnt/etc/fstab
 
-# enter new system
-arch-chroot /mnt /bin/bash
+# change root into new system
+arch-chroot /mnt
 
 # nano /etc/locale.gen
 # uncomment en_US.UTF-8、zh_CN.UTF-8、zh_TW.UTF-8
 locale-gen
-
 echo LANG=en_US.UTF-8 > /etc/locale.conf
 
 # set timezone
 # tzselect
-# ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-timedatectl set-timezone Asia/Shanghai
-timedatectl set-ntp true
-timedatectl status
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+hwclock --systohc
+# timedatectl set-timezone Asia/Shanghai
+# timedatectl set-ntp true
+# timedatectl status
 
 
-# init ramdisk
-mkinitcpio -p linux
+# init ramdisk, usually not needed
+# mkinitcpio -p linux
 
 # set root pwd
 passwd
@@ -143,12 +149,16 @@ echo supers > /etc/hostname
 nano /etc/hosts
 ---add
 #<ip-address>   <hostname.domain.org>   <hostname>
-127.0.0.1   localhost.localdomain   localhost   myhostname
+127.0.0.1   localhost.localdomain   localhost
 ::1     localhost.localdomain   localhost   myhostname
+127.0.1.1	myhostname.localdomain	myhostname
 ---
 
 # enable network
 systemctl enable dhcpcd.service
+
+# add new user
+useradd -m -G wheel -s /bin/zsh zhenglai
 
 # reboot the system
 exit
