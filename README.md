@@ -1,6 +1,16 @@
 # the-way-to-arch
 all stuff about arch linux as personal workstation OS
 
+## SSH Somebox
+
+```bash
+pacman -Syy
+pacman -S openssh
+systemctl enable sshd.service
+systemctl start sshd.service
+passwd
+```
+
 ## Prepare USB Installer
 
 ```
