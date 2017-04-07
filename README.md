@@ -15,6 +15,9 @@ passwd
 
 ```bash
 lspci -l # check raid types if any
+lsblk
+
+setfont sun12x22
 
 mdadm --zero-superblock /dev/<existing-array or partition>
 
