@@ -156,6 +156,7 @@ nano /etc/hosts
 ::1     localhost.localdomain   localhost   myhostname
 127.0.1.1	myhostname.localdomain	myhostname
 ---
+speaker-test -c2 
 
 # enable network
 systemctl enable dhcpcd.service
@@ -171,8 +172,12 @@ reboot
 # unplug the usb installer
 
 pacman -S xorg
-pacman -S xfce4 xfce4-goodies
-pacman -S sddm
-systemctl enable sddm.service
+
+
+
+# audio
+pacman -S alsa-utils
+alsamixer 
+speaker-test -c2 
 
 ```
