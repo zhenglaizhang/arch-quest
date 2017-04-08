@@ -181,3 +181,10 @@ alsamixer
 speaker-test -c2 
 
 ```
+
+
+## Graphics Drivers
+
+```bash
+
+```
