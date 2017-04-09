@@ -1,5 +1,12 @@
 # the-way-to-arch
-all stuff about arch linux as personal workstation OS
+all stuff about arch linux as personal workstation O
+
+
+## Create Media
+
+```bash
+dd if=arch-install.iso of=/dev/sdb
+```
 
 ## SSH Somebox
 
@@ -171,6 +178,7 @@ reboot
 
 # unplug the usb installer
 
+pacman -S net-tools，dnsutils，inetutils，iproute2
 pacman -S xorg
 
 
