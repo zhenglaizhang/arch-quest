@@ -206,6 +206,6 @@ speaker-test -c2
 
 ```shell	
 sudo pacman -S terminology vlc
-yaourt foxitreader 
+yaourt foxitreader
 ```
 
