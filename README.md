@@ -202,10 +202,10 @@ speaker-test -c2
 
 
 
-## Dev Utils
+## Cookies
 
 ```shell	
-sudo pacman -S terminology xournal
+sudo pacman -S terminology vlc
 yaourt foxitreader 
 ```
 
