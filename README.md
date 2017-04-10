@@ -209,3 +209,12 @@ sudo pacman -S --needed terminology vlc tmuxinator tmux pgcli mycli hub
 yaourt foxitreader
 ```
 
+
+
+## References
+
+
+
+http://zuyunfei.com/2013/08/09/tmuxinator-best-mate-of-tmux/
+
+https://github.com/tmuxinator/tmuxinator
