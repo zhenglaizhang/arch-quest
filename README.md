@@ -182,12 +182,13 @@ pacman -S net-tools，dnsutils，inetutils，iproute2
 pacman -S xorg
 
 
+# add tmpfs mounts
+echo "tmpfs     /mnt/fast     tmpfs     rw,size=5000M,x-gvfs-show     0 0" >> /etc/fstab
 
 # audio
 pacman -S alsa-utils
 alsamixer 
 speaker-test -c2 
-
 ```
 
 
@@ -196,3 +197,15 @@ speaker-test -c2
 ```bash
 
 ```
+
+
+
+
+
+## Dev Utils
+
+```shell	
+sudo pacman -S terminology xournal
+yaourt foxitreader 
+```
+
