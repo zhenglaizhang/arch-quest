@@ -205,7 +205,7 @@ speaker-test -c2
 ## Cookies
 
 ```shell	
-sudo pacman -S terminology vlc
+sudo pacman -S --needed terminology vlc tmuxinator tmux pgcli mycli hub
 yaourt foxitreader
 ```
 
