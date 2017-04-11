@@ -200,6 +200,11 @@ speaker-test -c2
 
 
 
+```shell
+pac python-pip
+pip install numpy scipy scrappy
+```
+
 
 
 ## Cookies
