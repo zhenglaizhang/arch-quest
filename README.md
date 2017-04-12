@@ -202,7 +202,7 @@ speaker-test -c2
 
 ```shell
 pac python-pip
-pip install numpy scipy scrappy
+pip install --user numpy pgcli mycli scipy
 ```
 
 
@@ -212,6 +212,16 @@ pip install numpy scipy scrappy
 ```shell	
 sudo pacman -S --needed terminology vlc tmuxinator tmux pgcli mycli hub
 yaourt foxitreader
+```
+
+
+
+## Opt
+
+```shell	
+systemctl disable httpd.service
+systemctl disable docker.service
+sudo usermod -aG docker $USER
 ```
 
 
