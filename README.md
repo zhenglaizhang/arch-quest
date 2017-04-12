@@ -226,6 +226,15 @@ sudo usermod -aG docker $USER
 
 
 
+### Fonts
+
+```shell	
+cp Fira*.otf /usr/share/fonts/OTF
+fc-cache -rfv
+```
+
+
+
 ## References
 
 
