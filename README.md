@@ -222,6 +222,11 @@ yaourt foxitreader
 systemctl disable httpd.service
 systemctl disable docker.service
 sudo usermod -aG docker $USER
+
+
+# vim setup
+proxychains git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+proxychains vim +PluginInstall +qall
 ```
 
 
