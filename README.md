@@ -235,6 +235,36 @@ fc-cache -rfv
 
 
 
+### Big Data Stacks
+
+```shell	
+cd /tmp/
+proxychains wget http://ftp.jaist.ac.jp/pub/apache/kafka/0.10.2.0/kafka_2.12-0.10.2.0.tgz -O kafka.tgz
+proxychains wget http://d3kbcqa49mib13.cloudfront.net/spark-2.1.0-bin-hadoop2.7.tgz -O spark.tgz
+proxychains wget http://ftp.riken.jp/net/apache/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz -O zookeeper.tgz
+
+# or keep the version use `ln -s kafka_2.12_0.10.2.- kafka to create symbolic links
+tar xf kafka.tgz
+tar xf zookeeper.tgz
+tar xf spark.tgz
+
+mv kafka ~/.bin/
+mv zookeeper ~/.bin/
+mv spark ~/.bin/
+```
+
+
+
+### Common Utils
+
+```shell	
+# set screen brightness
+# cat /sys/class/backlight/intel_backlight/max_brightness
+sudo tee /sys/class/backlight/intel_backlight/brightness <<< 150
+```
+
+
+
 ## References
 
 
