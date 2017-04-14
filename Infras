@@ -1,0 +1,6 @@
+## Prometheus
+
+```bash
+# https://prometheus.io/docs/introduction/install/
+docker run --name prometheus -v /home/$USER/repo/quest-arch/.config/prometheus.yml:/etc/prometheus/prometheus.yml -p 9090:9090 prom/prometheus# browser 127.0.0.1:9090
+```
