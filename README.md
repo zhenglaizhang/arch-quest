@@ -168,6 +168,9 @@ speaker-test -c2
 # enable network
 systemctl enable dhcpcd.service
 
+alias pac="pacman -S --needed "
+pac zsh zsh-completions
+
 # add new user
 useradd -m -G wheel -s /bin/zsh zhenglai
 
@@ -191,30 +194,45 @@ alsamixer
 speaker-test -c2 
 ```
 
-
 ## Graphics Drivers
 
+
+
+### Save Power
+
 ```bash
+pac acpi_call
+# load the kernel module
+modprobe acpi_call
+
+# turn off dGPU
+/usr/share/acpi_call/examples/turn_off_gpu.sh
+
+# turn on the dGPU
+# reboot
 
 ```
 
-
+https://wiki.archlinux.org/index.php/Hybrid_graphics#Fully_Power_Down_Discrete_GPU
 
 ```shell
 pac python-pip
 pip install --user numpy pgcli mycli scipy
 ```
 
-
+### Terminal & Shell
+https://wiki.archlinux.org/index.php/Zsh#Making_Zsh_your_default_shell
 
 ## Cookies
 
 ```shell	
-sudo pacman -S --needed terminology vlc tmuxinator tmux pgcli mycli hub
+sudo pacman -S --needed sakura vlc tmuxinator tmux pgcli mycli hub
 yaourt foxitreader
+
+wget https://download.jetbrains.com/idea/ideaIU-2017.1.tar.gz /tmp/idea.tar.gz
 ```
 
-
+ch
 
 ## Opt
 
