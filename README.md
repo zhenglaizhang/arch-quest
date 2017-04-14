@@ -120,11 +120,11 @@ echo LANG=en_US.UTF-8 > /etc/locale.conf
 
 # set timezone
 # tzselect
-ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-hwclock --systohc
-# timedatectl set-timezone Asia/Shanghai
-# timedatectl set-ntp true
-# timedatectl status
+# ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+# hwclock --systohc
+timedatectl set-timezone Asia/Shanghai
+timedatectl set-ntp true
+timedatectl status
 
 
 # init ramdisk, usually not needed
