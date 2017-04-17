@@ -264,6 +264,9 @@ sudo tee /sys/class/backlight/intel_backlight/brightness <<< 150
 ```
 
 
+```
+sudo systemctl enable netctl-auto@wlp4s0.service
+```
 
 ## References
 
