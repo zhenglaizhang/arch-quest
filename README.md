@@ -275,3 +275,11 @@ sudo systemctl enable netctl-auto@wlp4s0.service
 http://zuyunfei.com/2013/08/09/tmuxinator-best-mate-of-tmux/
 
 https://github.com/tmuxinator/tmuxinator
+
+
+## 
+
+```shell
+git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
