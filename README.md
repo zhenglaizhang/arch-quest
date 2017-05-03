@@ -238,6 +238,9 @@ fc-cache -rfv
 ### Big Data Stacks
 
 ```shell	
+mkdir -p ~/.data/zookeeper
+mkdir -p ~/.data/kafka/log
+
 cd /tmp/
 proxychains wget http://ftp.jaist.ac.jp/pub/apache/kafka/0.10.2.0/kafka_2.12-0.10.2.0.tgz -O kafka.tgz
 proxychains wget http://d3kbcqa49mib13.cloudfront.net/spark-2.1.0-bin-hadoop2.7.tgz -O spark.tgz
