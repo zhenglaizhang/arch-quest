@@ -1,0 +1,16 @@
+[Unit]
+Description=ZooKeeper
+
+[Service]
+Environment=ZOO_LOG_DIR=/home/zhenglai/.data/zookeeper/log
+User=zhenglai
+Type=forking
+Group=wheel
+ExecStart=/home/zhenglai/.bin/zookeeper/bin/zkServer.sh start
+ExecStop=/home/zhenglai/.bin/zookeeper/bin/zkServer.sh stop
+
+TimeoutSec=300
+
+[Install]
+WantedBy=multi-user.target 
+
