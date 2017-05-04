@@ -264,6 +264,13 @@ mv spark ~/.bin/
 # set screen brightness
 # cat /sys/class/backlight/intel_backlight/max_brightness
 sudo tee /sys/class/backlight/intel_backlight/brightness <<< 150
+
+
+yaourt tpacpi-bat
+systemctl enable tpacpi-bat.service
+systemctl start tpacpi-bat.service
+sudo tpacpi-bat -g SP 1 # 80
+sudo tpacpi-bat -g ST 1 # 40
 ```
 
 
