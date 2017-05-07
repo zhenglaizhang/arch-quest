@@ -276,6 +276,10 @@ sudo tpacpi-bat -g ST 1 # 40
 
 
 yaourt nvme-cli
+
+pac ruby
+gem install tmuxinator
+tmuxinator doctor
 ```
 
 
