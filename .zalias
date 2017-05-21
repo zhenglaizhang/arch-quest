@@ -1,0 +1,71 @@
+alias zshconfig="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
+alias vi="vim"
+alias o="open"
+alias og="open https://github.com/zhenglaizhang"
+alias oz="open http://zhenglaizhang.net"
+alias gs="git status"
+alias t="tmux"
+alias tu="tmuximator"
+alias tailf="tail -f"
+alias ping="ping -c 6"
+alias dm="docker-machine"
+alias dk="docker"
+alias cls="clear"
+alias cppath="pwd|pbcopy"
+alias cat="pygmentize -g"
+alias removeDeps="yaourt -Qdt"
+alias pc="proxychains -q"
+alias ruby="ruby -w"
+eval "$(hub alias -s)"
+# JVM related tools alias
+alias jps="jps -mlvV"
+# common alias
+alias ll="la"
+# alias python=python3
+# alias py=python3
+alias py=python
+alias scala=scala -Dscala.color=true
+# git alias
+alias g="tig"
+alias gst="git status"
+alias ga="git add "
+alias gr='cd $(git rev-parse --show-toplevel)'
+alias gd="git diff "
+alias gdc="git diff --cached"
+alias gaa="git add ."
+alias gcam="git add .;git commit -am "
+alias gci="git commit"
+alias gcim="git commit -m"
+alias gplom="proxychains git pull origin master --rebase"
+alias gploo="proxychains git pull origin order --rebase"
+alias gplod="proxychains git pull origin dev --rebase"
+alias gphom="proxychains git push origin master"
+alias gphoo="proxychains git push origin order"
+alias gphod="proxychains git push origin dev"
+alias gpho="proxychains git push origin"
+alias gplo="proxychains git pull origin"
+alias gmr="git merge"
+
+# sbt alias
+alias run="sbt run"
+alias runm="sbt runMain"
+alias validate="sbt validate"
+alias tt="sbt test"
+alias tto="sbt testOnly"
+alias vcc="open target/scala-2.11/scoverage-report/index.html"
+alias co="sbt compile"
+
+# common alias
+alias free="free -hw"
+alias df="df -h"
+alias pac="sudo pacman -S --needed "
+alias ss="sudo sslocal -d start -c /etc/shadowsocks/config.json"
+alias vpn="sudo openfortivpn"
+
+# finder alias
+alias f="vifm"
+
+# 
+alias rmrf="rm -rf "
+alias tailf="tail -f "
