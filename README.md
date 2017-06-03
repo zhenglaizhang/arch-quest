@@ -34,7 +34,7 @@ lsblk
 setfont sun12x22
 
 # It is highly recommended to pre-partition the disks to be used in the array.
-mdadm --create --verbose --level=0 --metadata=1.2 --raid-devices=2 --chunk=32 /dev/md0 /dev/nvme0n1 /dev/nvme1n1
+mdadm --create --verbose --level=0 --metadata=1.2 --raid-devices=2 --chunk=32 /dev/md0 /dev/nvme0n1p1 /dev/nvme1n1p1
 mdadm --detail /dev/md0 | grep 'Chunk Size'
 cat /proc/mdstat # check progress
 echo 'DEVICE partitions' > /etc/mdadm.conf
