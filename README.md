@@ -11,6 +11,13 @@ dd if=arch-install.iso of=/dev/sdb
 ## SSH Somebox
 
 ```bash
+wifi-menu
+
+cd /etc/pacman.d
+grep -A 1 '##.*China' mirrorlist|grep -v '\-\-'> mirrorlist2
+cat mirrorlist>>mirrorlist2
+mv mirrorlist2 mirrorlist
+
 pacman -Syy
 pacman -S openssh
 systemctl enable sshd.service
@@ -26,24 +33,19 @@ lsblk
 
 setfont sun12x22
 
-mdadm --zero-superblock /dev/<existing-array or partition>
-
 # It is highly recommended to pre-partition the disks to be used in the array.
-
-mdadm --create --verbose --level=0 --metadata=1.2 --raid-devices=2 --chunk=32 /dev/md0 /dev/sdb1 /dev/sdc1
+mdadm --create --verbose --level=0 --metadata=1.2 --raid-devices=2 --chunk=32 /dev/md0 /dev/nvme0n1 /dev/nvme1n1
 mdadm --detail /dev/md0 | grep 'Chunk Size'
 cat /proc/mdstat # check progress
 echo 'DEVICE partitions' > /etc/mdadm.conf
 mdadm --detail --scan >> /etc/mdadm.conf
 # assemble the array
 mdadm --assemble --scan
-
-# chunk-size is 64
-# if chunk-size: 32: stride=8, stripe-width=16
-mkfs.ext4 -v -L myarray -m 0.5 -b 4096 -E stride=16,stripe-width=32 /dev/md0
+mkfs.ext4 -v -L a0 -m 0.5 -b 4096 -E stride=8,stripe-width=16 /dev/md0
 
 
 # install the base system
+
 # then update the mdadm.conf
 mdadm --detail --scan >> /mnt/etc/mdadm.conf
 # check mdadm.conf file
@@ -89,14 +91,13 @@ fdisk -l
 
 # mounting
 mount /dev/sda2 /mnt
+mount /dev/md0 /mnt
 mkdir -p /mnt/boot
 mount /dev/sda1 /mnt/boot
+mount /dev/nvme0n1p2 /mnt/boot
 
 
-cd /etc/pacman.d
-grep -A 1 '##.*China' mirrorlist|grep -v '\-\-'> mirrorlist2
-cat mirrorlist>>mirrorlist2
-mv mirrorlist2 mirrorlist
+
 
 
 # refresh pacman cache
