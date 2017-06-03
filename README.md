@@ -111,6 +111,9 @@ pacstrap -i /mnt base base-devel
 genfstab -U -p /mnt >> /mnt/etc/fstab
 cat /mnt/etc/fstab
 
+mdadm --detail --scan >> /mnt/etc/mdadm.conf
+cat /mnt/etc/mdadm.conf
+
 # change root into new system
 arch-chroot /mnt
 
