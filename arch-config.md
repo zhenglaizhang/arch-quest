@@ -41,4 +41,6 @@ wget https://github.com/tonsky/FiraCode/releases/download/1.204/FiraCode_1.204.z
 unzip FiraCode_1.204.zip
 sudo cp otf/Fira*.otf /usr/share/fonts/OTF
 fc-cache -rfv
+
+yaourt powerpill proxychains shadowsocks
 ```
