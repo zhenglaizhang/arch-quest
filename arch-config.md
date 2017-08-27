@@ -4,7 +4,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 # use Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 
-pac gnome gdm xorg-xinit xf86-input-synaptics xf86-video-intel nvidia
+pac tlp gnome gdm xorg-xinit xf86-input-synaptics xf86-video-intel nvidia
 pac gnome-tweak-tool
 sudo systemctl enable gdm 
 alias pac="sudo pacman -S --needed "
@@ -32,4 +32,13 @@ yaourt android-sdk-platform-tools
 yaourt android-sdk
 yaourt android-sdk-build-tools
 yaourt android-platform
+
+pac acpi_call
+sudo modprobe acpi_call
+pac docker wget 
+cd /tmp
+wget https://github.com/tonsky/FiraCode/releases/download/1.204/FiraCode_1.204.zip
+unzip FiraCode_1.204.zip
+sudo cp otf/Fira*.otf /usr/share/fonts/OTF
+fc-cache -rfv
 ```
