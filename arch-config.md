@@ -43,4 +43,9 @@ sudo cp otf/Fira*.otf /usr/share/fonts/OTF
 fc-cache -rfv
 
 yaourt powerpill proxychains shadowsocks
+
+
+sudo pacman --needed -S bumblebee mesa xf86-video-intel nvidia bbswitch
+sudo gpasswd -a zhenglai bumblebee
+sudo systemctl enable bumblebeed.service
 ```
