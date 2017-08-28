@@ -32,6 +32,8 @@ yaourt android-sdk-platform-tools
 yaourt android-sdk
 yaourt android-sdk-build-tools
 yaourt android-platform
+# open android-studio and instlall NDK
+yaourt ncurses5-compat-libs
 
 pac acpi_call
 sudo modprobe acpi_call
