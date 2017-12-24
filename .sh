@@ -1,0 +1,1 @@
+pi numpy mycli scipy matplotlib jupyter scikit-image ntlk librosa

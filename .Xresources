@@ -1,7 +1,11 @@
+Xft.dpi: 216
 Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
 Xft.antialias: 1
-Xft.hinting: true
-Xft.hintstyle: hintslight
-Xft.dpi: 96
 Xft.rgba: rgb
-Xft.lcdfilter: lcddefault
+
+rofi.font: Monospace bold 36
+
+Xcursor.size: 64

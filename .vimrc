@@ -43,7 +43,7 @@ Plugin 'godlygeek/tabular'
 "Plugin 'christoomey/vim-tmux-navigator'
 "Plugin 'bling/vim-airline'
 "Plugin 'vim-airline/vim-airline-themes'
-"Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
 Plugin 'kien/ctrlp.vim.git'
@@ -55,7 +55,7 @@ Plugin 'easymotion/vim-easymotion.git'
 "Plugin 'altercation/vim-colors-solarized'  
 Plugin 'tpope/vim-fugitive'
 Plugin 'git://git.wincent.com/command-t.git'
-"Plugin 'Valloric/YouCompleteMe.git'
+Plugin 'Valloric/YouCompleteMe.git'
 Plugin 'scrooloose/nerdtree.git'
 "Plugin 'vim-scripts/a.vim.git'
 Plugin 'fholgado/minibufexpl.vim.git'
@@ -160,6 +160,38 @@ set nostartofline
 set ruler
 " set colorcolumn=80,160
 
+
+
+" enable syntax highlighting
+syntax enable
+"
+" " show line numbers
+set number
+"
+"" set tabs to have 4 spaces
+set ts=4
+
+" indent when moving to the next line while writing code
+set autoindent
+"
+" " expand tabs into spaces
+set expandtab
+"
+"" when using the >> or << commands, shift lines by 4 spaces
+set shiftwidth=4
+
+" show a visual line under the cursor's current line
+set cursorline
+"
+" " show the matching part of the pair for [] {} and ()
+set showmatch
+"
+"" enable all Python syntax highlighting features
+let python_highlight_all = 1"
+" "
+" "
+" "
+
 " :match ColorColumn /^set/
 " :match NONE
 " :2match
@@ -249,6 +281,8 @@ nmap <silent> <leader>y :NERDTreeFind<cr>
 let g:ycm_global_ycm_extra_conf = ".ycm_extra_conf.py"
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_python_binary_path = 'python3'
+let g:ycm_path_to_python_interpreter='python3'
 nnoremap <F4> :YcmForceCompileAndDiagnostics<CR>
 
 """""""""""""""""""""" easymotion """""""""""""""""""""""""""

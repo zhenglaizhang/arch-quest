@@ -1,38 +1,18 @@
+# If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export ZSH=/home/zhenglai/.oh-my-zsh
 
-# `theme name` or `random`
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
-# use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# disable bi-weekly auto-update checks.
+HYPHEN_INSENSITIVE="true"
 DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# DISABLE_LS_COLORS="true"
-
 DISABLE_AUTO_TITLE="true"
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
-
-# set mail check interval as 0 to disable mail checking
 MAILCHECK=0
-
-# if you want to disable marking untracked files under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="yyyy-mm-dd"
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
@@ -47,57 +27,160 @@ setopt HIST_VERIFY               # Dont execute immediately upon history expansi
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 setopt HIST_NO_STORE             # Dont store function definitions.
 
-
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(
     archlinux
     git
-    docker
-    sbt
+    #docker
+    #docker-compose
+    #sbt
     gradle
-    mvn
-    ruby
-    rails
+    #mvn
     autojump
     colorize
-    colored-man-pages
     zsh-autosuggestions
     zsh-syntax-highlighting
+    z
 )
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.zalias
 
+# User configuration
 
 eval "$(hub alias -s)"
+
+export MANPATH="/usr/local/man:$MANPATH"
+export CUDA_HOME=/usr/local/cuda
+export PATH="$PATH:$CUDA_HOME/bin"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$CUDA_HOME/lib64:$CUDA_HOME/extras/CUPTI/lib64"
+export LANG=en_US.UTF-8
+export ARCHFLAGS="-arch x86_64"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
+export EDITOR='vim'
+export TF_CPP_MIN_LOG_LEVEL=2 # warning
+export PYTHONSTARTUP="$HOME/.pystartup.py"
+
+alias pc='proxychains '
+alias gco='git checkout '
+alias ccat='pygmentize -g'
+alias repo='cd ~/repo'
+alias gphom='git push origin master'
+alias gpo='git push origin'
+alias gcim='git commit -m '
+alias gdc='git diff --cached '
+alias gcam='git add . && git commit -m '
+alias gplom='git pull origin master --rebase'
+alias repo="cd ~/repo"
+alias zshconfig="source ~/.zshrc"
+alias pac="sudo pacman -S --needed "
+alias subl="subl3"
+alias gw="./gradlew --parallel"
+alias cls="clear"
+
+alias ccat='pygmentize -g'
+alias nvon="sudo tee /proc/acpi/bbswitch <<< ON"
+alias nvoff="rmmod nvidia_uvm && rmmod nvidia && sudo tee /proc/acpi/bbswitch <<< OFF"
+
+###################### ALIAS START ####################
+
+alias zshconfig="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
+alias vi="vim"
+alias o="open"
+alias og="open https://github.com/zhenglaizhang"
+alias oz="open http://zhenglaizhang.net"
+alias gs="git status -s"
+alias t="tmux"
+alias tu="tmuximator"
+alias tailf="tail -f"
+alias ping="ping -c 6"
+alias dm="docker-machine"
+alias dk="docker"
+alias c="clear"
+alias cppath="pwd|pbcopy"
+alias removeDeps="yaourt -Qdt"
+alias py="optirun python3"
+alias p="optirun python3 -tt -OO"
+alias pc="proxychains -q"
+alias ruby="ruby -w"
+eval "$(hub alias -s)"
+# JVM related tools alias
+alias jps="jps -mlvV"
+# common alias
+alias ll="la"
+# git alias
+alias g="tig"
+alias gst="git status -s"
+alias ga="git add "
+alias gr='cd $(git rev-parse --show-toplevel)'
+alias gd="git diff "
+alias gdc="git diff --cached"
+alias gaa="git add ."
+alias gcam="git add .;git commit -am "
+alias gci="git commit"
+alias gcim="git commit -m"
+alias gplom="proxychains git pull origin master --rebase"
+alias gploo="proxychains git pull origin order --rebase"
+alias gplod="proxychains git pull origin dev --rebase"
+alias gphom="proxychains git push origin master"
+alias gphoo="proxychains git push origin order"
+alias gphod="proxychains git push origin dev"
+alias gpho="proxychains git push origin"
+alias gplo="proxychains git pull origin"
+alias gcl="proxychains git clone "
+alias gmr="git merge"
+
+# sbt alias
+alias tt="sbt test"
+alias tto="sbt testOnly"
+alias vcc="open target/scala-2.11/scoverage-report/index.html"
+alias co="sbt compile"
+alias sbv="sbt validate"
+alias sbr="sbt run"
+
+# common alias
+alias free="free -hw"
+alias df="df -h"
+alias pac="sudo pacman -S --needed "
+alias ss="sudo sslocal -d start -c /etc/shadowsocks/config.json"
+alias vpn="sudo openfortivpn"
+alias f="vifm"
+alias scala="scala -Dscala.color=true"
+alias rmrf="rm -rf "
+alias tailf="tail -f "
+alias df="df -h"
+alias pc="proxychains"
+alias pi="sudo pip3 install --upgrade "
+
+##################### ALIAS END #######################
+
 
 bindkey '^p' autosuggest-accept
 bindkey '^r' autosuggest-execute
 
-
-# Opts
+# opts
 export RI="--format ansi --width 70"
-export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxMetaspaceSize=512M -XX:MetaspaceSize=512M -Xms1G -Xmx2G"
+export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxMetaspaceSize=1G -XX:MetaspaceSize=1G -Xms2G -Xmx4G -Dlogging.level.root=INFO"
+export MAVEN_OPTS="-Xmx4G -XX:ReservedCodeCacheSize=1G"
+export PLAY_EDITOR="http://localhost:63342/api/file/?file=%s&line=%s"
 
+function exists { which $1 &> /dev/null }
 
-# local .secrets 
-source ~/.secrets
+if exists percol; then
+    function percol_select_history() {
+        local tac
+        exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
+        BUFFER=$(fc -l -n 1 | eval $tac | percol --query "$LBUFFER")
+        CURSOR=$#BUFFER         # move cursor
+        zle -R -c               # refresh
+    }
 
+    zle -N percol_select_history
+    bindkey '^F' percol_select_history
+fi
 
-export PATH="/home/$USER/.bin:/home/$USER/.local/bin:$PATH"
-export MANPATH="/usr/local/man:$MANPATH"
-export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
-export LANG=en_US.UTF-8
-export EDITOR="vim"
+fpath=(~/.zsh/completions $fpath) 
+autoload -U compinit && compinit
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/zhenglai/.sdkman"
+[[ -s "/home/zhenglai/.sdkman/bin/sdkman-init.sh" ]] && source "/home/zhenglai/.sdkman/bin/sdkman-init.sh"
