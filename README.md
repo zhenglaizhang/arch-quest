@@ -5,7 +5,9 @@ all stuff about arch linux as personal workstation O
 ## Create Media
 
 ```bash
-dd if=arch-install.iso of=/dev/sdb
+lsblk
+# check the usb device path
+sudo dd if=arch-install.iso of=/dev/sdc
 ```
 
 ## SSH Somebox
