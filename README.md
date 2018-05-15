@@ -14,17 +14,20 @@ sudo dd if=arch-install.iso of=/dev/sdc
 
 ```bash
 wifi-menu
-
-cd /etc/pacman.d
-grep -A 1 '##.*China' mirrorlist|grep -v '\-\-'> mirrorlist2
-cat mirrorlist>>mirrorlist2
-mv mirrorlist2 mirrorlist
+ping www.baidu.com
 
 pacman -Syy
 pacman -S openssh
 systemctl enable sshd.service
 systemctl start sshd.service
+
+ip addr show
 passwd
+
+cd /etc/pacman.d
+grep -A 1 '##.*China' mirrorlist|grep -v '\-\-'> mirrorlist2
+cat mirrorlist>>mirrorlist2
+mv mirrorlist2 mirrorlist
 ```
 
 ## Prepare RAID
@@ -119,6 +122,9 @@ cat /mnt/etc/mdadm.conf
 # change root into new system
 arch-chroot /mnt
 
+sudo pacman -Syyu
+sudo pacman -S vim wifi-menu
+
 # nano /etc/locale.gen
 # uncomment en_US.UTF-8、zh_CN.UTF-8、zh_TW.UTF-8
 locale-gen
@@ -189,6 +195,7 @@ reboot
 
 pacman -S net-tools，dnsutils，inetutils，iproute2
 pacman -S xorg
+pacman -S python-tensorflow-opt-cuda nvidia tensorboard
 
 
 # add tmpfs mounts
